@@ -18,9 +18,11 @@ public class GitHubClient {
     private final RestTemplate restTemplate;
     @Value("${github.access-token}")
     private String token;
+    @Value("${github.base-url}")
+    private String githubBaseUrl;
 
     public GithubRepoDTO[] getListRepositoriesForUser(String username) {
-        String url = String.format("https://api.github.com/users/%s/repos", username);
+        String url = String.format("%s/users/%s/repos", githubBaseUrl, username);
 
         var httpEntity = getConfiguredEntity();
 
@@ -32,7 +34,7 @@ public class GitHubClient {
     }
 
     public GithubBranchDTO[] getRepositoryBranchesWithLastCommitSha(String username, String repo) {
-        String url = String.format("https://api.github.com/repos/%s/%s/branches", username, repo);
+        String url = String.format("%s/repos/%s/%s/branches", githubBaseUrl, username, repo);
 
         var httpEntity = getConfiguredEntity();
 
