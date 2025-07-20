@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: atipera-github
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+github:
+  access-token: ${GITHUB_ACCESS_TOKEN}
