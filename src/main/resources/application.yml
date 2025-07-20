@@ -6,4 +6,5 @@ spring:
     property-naming-strategy: SNAKE_CASE
 
 github:
+  base-url: https://api.github.com
   access-token: ${GITHUB_ACCESS_TOKEN}
